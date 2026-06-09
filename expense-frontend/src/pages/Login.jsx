@@ -10,26 +10,47 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await API.post("/auth/login", {
+  //       email,
+  //       password,
+  //     });
+  //     // ✅ STORE AS OBJECT
+  //     login({
+  //       token: res.data.token, 
+        
+  //       // 👈 this matches interceptor
+  //     });
+
+  //     navigate("/dashboard");
+  //   } catch (err) {
+  //     setError("Invalid credentials");
+  //   }
+  // };
+  
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
+    const res = await API.post("/auth/login", {
+      email,
+      password,
+    });
 
-    try {
-      const res = await API.post("/auth/login", {
-        email,
-        password,
-      });
+    // 🔥 ADD THIS
+    console.log("LOGIN RESPONSE:", res.data);
 
-      // ✅ STORE AS OBJECT
-      login({
-        token: res.data.user.token, // 👈 this matches interceptor
-      });
+    // ❗ TEMP FIX (we’ll adjust after seeing console)
+    login({
+      token: res.data.token || res.data.user?.token,
+    });
 
-      navigate("/dashboard");
-    } catch (err) {
-      setError("Invalid credentials");
-    }
-  };
-
+    navigate("/dashboard");
+  } catch (err) {
+    setError("Invalid credentials");
+  }
+};
   return (
     <div>
       <h2>Login</h2>

@@ -7,7 +7,6 @@ const API = axios.create({
 API.interceptors.request.use(
   (req) => {
     const storedUser = localStorage.getItem("user");
-
     if (storedUser) {
       try {
         const user = JSON.parse(storedUser);
@@ -19,7 +18,6 @@ API.interceptors.request.use(
         console.error("Invalid user in localStorage");
       }
     }
-
     return req;
   },
   (error) => Promise.reject(error)

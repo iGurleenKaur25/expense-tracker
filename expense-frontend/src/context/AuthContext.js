@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     // userData must be an OBJECT { token, ... }
     localStorage.setItem("user", JSON.stringify(userData));
+    console.log("LOGIN DATA:", userData);
     setUser(userData);
   };
 

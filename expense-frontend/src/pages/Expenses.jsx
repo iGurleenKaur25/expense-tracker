@@ -23,6 +23,13 @@ const Expenses = () => {
       setLoading(false);
     }
   };
+const handleEditExpense = (expense) => {   // ✅ FIXED
+  setEditingExpense(expense);
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   const handleSaveExpense = (savedExpense) => {
     if (editingExpense) {
@@ -36,10 +43,15 @@ const Expenses = () => {
     }
   };
 
-  const handleDeleteExpense = (id) => {
+const handleDeleteExpense = async (id) => {
+  try {
+    await API.delete(`/expenses/${id}`);
     setExpenses((prev) => prev.filter((e) => e._id !== id));
-  };
-
+  } catch (err) {
+    console.error("Delete failed", err);
+    setExpenses((prev) => prev.filter((e) => e._id !== id));
+  }
+};
   if (loading) return <p>Loading expenses...</p>;
 
   return (

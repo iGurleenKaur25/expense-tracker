@@ -1,6 +1,6 @@
 import ExpenseItem from "./ExpenseItem";
 
-const ExpenseList = ({ expenses, onDelete }) => {
+const ExpenseList = ({ expenses, onDelete, onEdit }) => {
   if (expenses.length === 0) {
     return <p>No expenses found</p>;
   }
@@ -12,9 +12,11 @@ const ExpenseList = ({ expenses, onDelete }) => {
           key={expense._id}
           expense={expense}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>
+    
   );
 };
 

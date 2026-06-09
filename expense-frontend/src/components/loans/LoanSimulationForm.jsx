@@ -1,31 +1,61 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import API from "../../api/axiosInstance";
 
-const LoanSimulationForm = ({ onLoanCreated }) => {
+const LoanSimulationForm = ({ onLoanCreated,editingLoan, onSave }) => {
+  const [loanName, setLoanName] = useState("");
   const [loanAmount, setLoanAmount] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [tenureMonths, setTenureMonths] = useState("");
   const [extraPayment, setExtraPayment] = useState("");
+  
+   // ✅ PREFILL FORM
+  useEffect(() => {
+    if (editingLoan) {
+      setLoanName(editingLoan.loanName);
+      setLoanAmount(editingLoan.loanAmount);
+      setInterestRate(editingLoan.interestRate);
+      setTenureMonths(editingLoan.tenureMonths);
+      setExtraPayment(editingLoan.extraPayment || "");
+    }
+  }, [editingLoan]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  console.log("FORM SUBMITTED");
+  e.preventDefault();
 
-    try {
-      const res = await API.post("/loans/simulate", {
+  try {
+    let res;
+
+    if (editingLoan) {
+      res = await API.put(`/loans/${editingLoan._id}`, {
+        loanName,
         loanAmount,
         interestRate,
         tenureMonths,
         extraPayment,
       });
 
-      onLoanCreated(res.data.data);
-      clearForm();
-    } catch (error) {
-      console.error("Loan simulation failed", error);
-    }
-  };
+      onSave(res.data);
+    } else {
+      res = await API.post("/loans/simulate", {
+        loanName,
+        loanAmount,
+        interestRate,
+        tenureMonths,
+        extraPayment,
+      });
 
+      console.log(res.data); // 🔍 DEBUG
+      onLoanCreated(res.data.data || res.data); // ✅ SAFE FIX
+    }
+
+    clearForm();
+  } catch (error) {
+    console.error("Loan action failed", error);
+  }
+};
   const clearForm = () => {
+    setLoanName("");
     setLoanAmount("");
     setInterestRate("");
     setTenureMonths("");
@@ -34,6 +64,13 @@ const LoanSimulationForm = ({ onLoanCreated }) => {
 
   return (
     <form onSubmit={handleSubmit} className="loan-form">
+      <input
+        type="string"
+        placeholder="Loan Name"
+        value={loanName}
+        onChange={(e) => setLoanName(e.target.value)}
+        required
+      />
       <input
         type="number"
         placeholder="Loan Amount"
@@ -64,8 +101,9 @@ const LoanSimulationForm = ({ onLoanCreated }) => {
         value={extraPayment}
         onChange={(e) => setExtraPayment(e.target.value)}
       />
-
-      <button type="submit">Simulate & Save Loan</button>
+    <button type="submit">
+  {editingLoan ? "Update Loan" : "Simulate & Save Loan"}
+</button>
     </form>
   );
 };

@@ -7,6 +7,7 @@ const ExpenseItem = ({ expense, onDelete, onEdit }) => {
       onDelete(expense._id);
     } catch (error) {
       console.error("Delete failed", error);
+      onDelete(expense._id);
     }
   };
 
