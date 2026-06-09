@@ -14,7 +14,6 @@ app.use(
     credentials: true,
   })
 );
-
 const authRoutes = require('./routes/auth');
 const expenseRoutes = require('./routes/expense');
 const loanRoutes = require('./routes/loan');

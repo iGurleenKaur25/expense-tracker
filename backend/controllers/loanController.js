@@ -5,10 +5,11 @@ exports.addLoan = async (req, res) => {
     const loan = await Loan.create({
       userId: req.user._id,
       title: req.body.title,
-      totalAmount: req.body.totalAmount,
+      loanAmount: req.body.loanAmount,
       interestRate: req.body.interestRate,
       emi: req.body.emi,
-      remainingAmount: req.body.totalAmount,
+      remainingAmount: req.body.loanAmount,
+     
       startDate: req.body.startDate
     });
 
@@ -27,6 +28,45 @@ exports.getLoans = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.updateLoan = async (req, res) => {
+  try {
+    const loan = await Loan.findById(req.params.id);
+    if (!loan) {
+      return res.status(404).json({ message: 'Loan not found' });
+    }
+    // Authorization check
+    if (loan.userId.toString() !== req.user._id.toString()) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    const updatedLoan = await Loan.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.json(updatedLoan);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+exports.deleteLoan = async (req,res) => {
+   try {
+      const loan = await Loan.findById(req.params.id);
+  
+      if (!loan) {
+        return res.status(404).json({ message: 'Loan not found' });
+      }
+  
+      if (loan.userId.toString() !== req.user._id.toString()) {
+        return res.status(401).json({ message: 'Unauthorized' });
+      }
+  
+      await loan.deleteOne();
+      res.json({ message: 'Loan deleted' });
+  
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+};
 
 // Calculates EMI
 // ✔ Simulates loan month-by-month
@@ -39,6 +79,7 @@ exports.simulateLoanClearance = async (req, res) => {
   try {
     const {
       loanAmount,
+      
       interestRate,
       tenureMonths,
       extraPayment = 0
@@ -94,7 +135,9 @@ exports.simulateLoanClearance = async (req, res) => {
 
     const loan = await Loan.create({
       userId: req.user._id,
+      loanName,
       loanAmount,
+      remainingAmount:loanAmount,
       interestRate,
       tenureMonths,
       extraPayment,

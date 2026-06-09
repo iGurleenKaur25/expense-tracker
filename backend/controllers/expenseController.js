@@ -77,18 +77,23 @@ exports.updateExpense = async (req, res) => {
 
 exports.deleteExpense = async (req, res) => {
   try {
-    const expense = await Expense.findById(req.params.id);
+    console.log("Deleting ID:", req.params.id);
+
+    const expense = await Expense.findOne({
+      _id: req.params.id,
+      userId: req.user._id
+    });
 
     if (!expense) {
-      return res.status(404).json({ message: 'Expense not found' });
+      return res.status(404).json({ message: "Expense not found" });
     }
 
-    if (expense.userId.toString() !== req.user._id.toString()) {
-      return res.status(401).json({ message: 'Unauthorized' });
+    await Expense.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(200).json({ message: "Already deleted" });
     }
 
-    await expense.deleteOne();
-    res.json({ message: 'Expense deleted' });
+    res.json({ message: "Expense deleted successfully" });
 
   } catch (error) {
     res.status(500).json({ message: error.message });

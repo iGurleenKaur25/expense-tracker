@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
+console.log("✅ EXPENSE ROUTES LOADED");
 const authMiddleware = require("../middleware/authMiddleware");
 const {
   addExpense,
   getExpenses,
-  deleteExpense
+  deleteExpense,
+  updateExpense
 } = require("../controllers/expenseController");
 const protect = require("../middleware/authMiddleware"); 
 
@@ -18,6 +19,7 @@ router.route("/")
   .get(protect, getExpenses);
 
 router.route("/:id")
-  // .put(protect, updateExpense)
+  .put(protect, updateExpense)
   .delete(protect, deleteExpense);
+
 module.exports = router;
