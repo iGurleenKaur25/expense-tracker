@@ -122,14 +122,14 @@ const LoanSimulationForm = ({ onLoanCreated, editingLoan, onSave }) => {
     <div className="sim-form-wrap">
   <style>{`
     .sim-form-wrap { background:#fff; border:1px solid #e5e0d4; border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .sim-form-title { font-size:0.95rem; font-weight:600; color:#0f172a; margin:0 0 1rem; }
+    .sim-form-title { font-size:1rem; font-weight:600; color:#0f172a; margin:0 0 1rem; }
     .sim-form { display:flex; flex-direction:column; gap:0.65rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.65rem; }
     .form-group { display:flex; flex-direction:column; gap:0.3rem; }
-    .form-label { font-size:0.72rem; font-weight:500; color:#6b7280; text-transform:uppercase; letter-spacing:0.04em; }
-    .form-input, .form-select { padding:0.5rem 0.75rem; border:1.5px solid #e5e0d4; border-radius:8px; font-size:0.875rem; color:#0f172a; background:#fff; outline:none; transition:border-color 0.15s; width:100%; box-sizing:border-box; }
+    .form-label { font-size:0.8rem; font-weight:500; color:#6b7280; text-transform:uppercase; letter-spacing:0.04em; }
+    .form-input, .form-select { padding:0.5rem 0.75rem; border:1.5px solid #e5e0d4; border-radius:8px; font-size:0.9rem; color:#0f172a; background:#fff; outline:none; transition:border-color 0.15s; width:100%; box-sizing:border-box; }
     .form-input:focus, .form-select:focus { border-color:#0f9d64; }
-    .form-hint { font-size:0.7rem; color:#9ca3af; }
+    .form-hint { font-size:0.9rem; color:#9ca3af; }
     .form-error { background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:0.6rem 0.85rem; color:#dc2626; font-size:0.8rem; }
     .mode-toggle { display:flex; gap:0.4rem; margin-bottom:0.3rem; }
     .mode-btn { flex:1; padding:0.4rem; font-size:0.75rem; font-weight:500; border-radius:7px; border:1.5px solid #e5e0d4; cursor:pointer; background:#fff; color:#374151; }

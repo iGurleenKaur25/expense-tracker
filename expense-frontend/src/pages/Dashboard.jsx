@@ -223,34 +223,34 @@ export default function Dashboard() {
   if (loading) return <div style={{ padding: "2rem", fontFamily: "sans-serif", color: "#6b7280" }}>Loading dashboard…</div>;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#faf7f0", padding: "2rem 1.5rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#faf7f0", padding: "1.8rem ", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
   <style>{`
     .db-header{margin-bottom:1.5rem}
-    .db-header h1{font-size:1.4rem;font-weight:700;color:#0f172a;margin:0 0 0.2rem}
-    .db-header p{color:#6b7280;font-size:0.85rem;margin:0}
+    .db-header h1{font-size:1.8rem;font-weight:700;color:#0f172a;margin:0 0 0.3rem}
+    .db-header p{color:#6b7280;font-size:0.9rem;margin:0}
     .db-filter{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem}
     .db-filter label{font-size:12px;color:#6b7280}
-    .db-filter select{font-size:13px;padding:5px 10px;border-radius:8px;border:1px solid #e5e0d4;background:#fff;color:#0f172a;cursor:pointer;outline:none}
+    .db-filter select{font-size:14px;padding:5px 10px;border-radius:8px;border:1px solid #e5e0d4;background:#fff;color:#0f172a;cursor:pointer;outline:none}
     .db-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:1.5rem}
     .db-stat{background:#fff;border:1px solid #e5e0d4;border-radius:10px;padding:1rem;position:relative;overflow:hidden}
-    .db-stat-label{font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
-    .db-stat-val{font-size:1.3rem;font-weight:700;color:#0f172a;line-height:1}
-    .db-stat-sub{font-size:11px;color:#9ca3af;margin-top:5px}
+    .db-stat-label{font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+    .db-stat-val{font-size:1.6rem;font-weight:700;color:#0f172a;line-height:1}
+    .db-stat-sub{font-size:14px;color:#9ca3af;margin-top:5px}
     .db-stat-bar{position:absolute;bottom:0;left:0;right:0;height:3px}
     .db-money-banner{border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
     .db-money-left{display:flex;flex-direction:column;gap:0.15rem}
-    .db-money-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:0.7}
+    .db-money-label{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:0.7}
     .db-money-val{font-size:1.6rem;font-weight:700;line-height:1}
     .db-money-divider{width:1px;height:40px;background:currentColor;opacity:0.15;flex-shrink:0}
     .db-money-breakdown{display:flex;gap:1.5rem;flex-wrap:wrap}
-    .db-money-item{font-size:0.8rem;opacity:0.85}
-    .db-money-item span{font-weight:600;display:block;font-size:0.92rem}
-    .db-money-msg{margin-left:auto;font-size:0.78rem;opacity:0.75;max-width:220px;line-height:1.4;text-align:right}
+    .db-money-item{font-size:1rem;opacity:0.85}
+    .db-money-item span{font-weight:600;display:block;font-size:1rem}
+    .db-money-msg{margin-left:auto;font-size:0.9rem;opacity:0.75;max-width:220px;line-height:1.4;text-align:right}
     .db-chart-full{background:#fff;border:1px solid #e5e0d4;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
     .db-charts-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
     .db-chart-half{background:#fff;border:1px solid #e5e0d4;border-radius:12px;padding:1rem 1.25rem}
-    .db-chart-title{font-size:11px;font-weight:600;color:#9ca3af;letter-spacing:.05em;text-transform:uppercase;margin-bottom:0.75rem}
-    .db-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;font-size:11px;color:#6b7280}
+    .db-chart-title{font-size:15px;font-weight:600;color:#9ca3af;letter-spacing:.05em;text-transform:uppercase;margin-bottom:0.75rem}
+    .db-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;font-size:15px;color:#6b7280}
     .db-legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
     @media(max-width:600px){.db-charts-2{grid-template-columns:1fr}.db-money-msg{display:none}}
   `}</style>

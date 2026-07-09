@@ -36,11 +36,11 @@ const Payments = () => {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   .page-header { margin-bottom: 1.5rem; }
-  .page-header h1 { font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
+  .page-header h1 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
   .page-header p { color: #6b7280; font-size: 0.85rem; margin: 0; }
   .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
   .stat-card { background: #fff; border-radius: 12px; padding: 1rem 1.25rem; border: 1px solid #e5e0d4; }
-  .stat-label { font-size: 0.68rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+  .stat-label { font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
   .stat-val { font-size: 1.2rem; font-weight: 700; color: #0f172a; }
   .stat-val.red { color: #dc2626; }
   .stat-val.green { color: #16a34a; }
@@ -50,7 +50,7 @@ const Payments = () => {
   .op-fill { height: 100%; background: #0f9d64; border-radius: 99px; transition: width 0.5s ease; }
   .loans-list { display: flex; flex-direction: column; gap: 1rem; }
   .empty-state { text-align: center; padding: 3rem 1rem; color: #9ca3af; }
-  .empty-state p { font-size: 0.9rem; margin-top: 1rem; }
+  .empty-state p { font-size: 1rem; margin-top: 1rem; }
   .skeleton { background: #fff; border-radius: 12px; height: 160px; border: 1px solid #e5e0d4; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
   .error-banner { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 1rem 1.25rem; color: #dc2626; font-size: 0.85rem; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }

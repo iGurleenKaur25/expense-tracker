@@ -11,8 +11,8 @@ const LoanItem = ({ loan, onEdit, onDelete }) => {
       margin-bottom: 0.75rem; font-family: -apple-system, sans-serif;
     }
     .li-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
-    .li-name { font-size: 0.95rem; font-weight: 600; color: #0f172a; margin: 0 0 0.2rem; }
-    .li-badge { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; padding: 0.15rem 0.55rem; border-radius: 20px; margin-right: 0.35rem; }
+    .li-name { font-size: 1rem; font-weight: 600; color: #0f172a; margin: 0 0 0.2rem; }
+    .li-badge { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; padding: 0.15rem 0.55rem; border-radius: 20px; margin-right: 0.35rem; }
     .li-badge.active { background: #ecfdf5; color: #0f9d64; }
     .li-badge.closed { background: #f0fdf4; color: #16a34a; }
     .li-badge.fee { background: #fefce8; color: #854d0e; }

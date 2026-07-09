@@ -50,12 +50,12 @@ const Income = () => {
     <div style={{ minHeight: "100vh", background: "#faf7f0", padding: "2rem 1.5rem", fontFamily: "-apple-system, sans-serif" }}>
   <style>{`
     .inc-header { margin-bottom:1.5rem; }
-    .inc-header h1 { font-size:1.4rem; font-weight:700; color:#0f172a; margin:0 0 0.2rem; }
+    .inc-header h1 { font-size:1.6rem; font-weight:700; color:#0f172a; margin:0 0 0.2rem; }
     .inc-header p { color:#6b7280; font-size:0.85rem; margin:0; }
     .inc-stats { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.5rem; }
     .inc-stat { background:#fff; border-radius:12px; padding:0.85rem 1.1rem; border:1px solid #e5e0d4; }
-    .inc-stat-label { font-size:0.68rem; color:#9ca3af; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.3rem; }
-    .inc-stat-val { font-size:1.1rem; font-weight:700; color:#16a34a; }
+    .inc-stat-label { font-size:0.8rem; color:#9ca3af; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.3rem; }
+    .inc-stat-val { font-size:1.3rem; font-weight:700; color:#16a34a; }
   `}</style>
 
       <div className="inc-header">

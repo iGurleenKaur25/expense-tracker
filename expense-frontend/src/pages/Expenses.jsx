@@ -250,18 +250,18 @@ const Expenses = () => {
     <div style={{ minHeight: "100vh", background: "#faf7f0", padding: "2rem 1.5rem", fontFamily: "-apple-system, sans-serif" }}>
       <style>{`
         .exp-header { margin-bottom: 1.5rem; }
-        .exp-header h1 { font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
-        .exp-header p { color: #6b7280; font-size: 0.85rem; margin: 0; }
+        .exp-header h1 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
+        .exp-header p { color: #6b7280; font-size: 0.9rem; margin: 0; }
         .exp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
         .exp-stat { background: #fff; border-radius: 12px; padding: 0.85rem 1.1rem; border: 1px solid #e5e0d4; }
-        .exp-stat-label { font-size: 0.68rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
-        .exp-stat-val { font-size: 1.1rem; font-weight: 700; color: #0f172a; }
-        .exp-stat-sub { font-size: 0.68rem; color: #9ca3af; margin-top: 0.2rem; }
+        .exp-stat-label { font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+        .exp-stat-val { font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+        .exp-stat-sub { font-size: 0.8rem; color: #9ca3af; margin-top: 0.2rem; }
         .filter-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
         .filter-btn { background: #fff; border: 1px solid #e5e0d4; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.75rem; color: #374151; cursor: pointer; }
         .filter-btn.active { background: #0f9d64; border-color: #0f9d64; color: #fff; }
         .exp-list { display: flex; flex-direction: column; gap: 0.5rem; }
-        .exp-empty { text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.875rem; }
+        .exp-empty { text-align: center; padding: 2rem; color: #9ca3af; font-size: 1rem; }
       `}</style>
 
       <div className="exp-header">
