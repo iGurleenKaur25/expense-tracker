@@ -13,12 +13,29 @@ const allowedOrigins = [
   process.env.CLIENT_URL,  // your deployed frontend URL, set this on Render/Railway
 ];
 
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // allow requests with no origin (Postman, curl, server-to-server)
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.includes(origin)) {
+//         return callback(null, true);
+//       }
+//       return callback(new Error("Not allowed by CORS: " + origin));
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (Postman, curl, server-to-server)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
+      const isLocalhost = origin === "http://localhost:3000" || origin === "http://localhost:5173";
+      const isVercelPreview = /^https:\/\/.*\.vercel\.app$/.test(origin);
+      if (isLocalhost || isVercelPreview) {
         return callback(null, true);
       }
       return callback(new Error("Not allowed by CORS: " + origin));
@@ -28,7 +45,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
 const authRoutes = require('./routes/auth');
 const expenseRoutes = require('./routes/expense');
 const loanRoutes = require('./routes/loan');
