@@ -38,7 +38,7 @@ const Payments = () => {
   .page-header { margin-bottom: 1.5rem; }
   .page-header h1 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
   .page-header p { color: #6b7280; font-size: 0.85rem; margin: 0; }
-  .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+  .stats-bar { display: grid;grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
   .stat-card { background: #fff; border-radius: 12px; padding: 1rem 1.25rem; border: 1px solid #e5e0d4; }
   .stat-label { font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
   .stat-val { font-size: 1.2rem; font-weight: 700; color: #0f172a; }

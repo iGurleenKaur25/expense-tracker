@@ -252,7 +252,7 @@ const Expenses = () => {
         .exp-header { margin-bottom: 1.5rem; }
         .exp-header h1 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 0 0 0.2rem; }
         .exp-header p { color: #6b7280; font-size: 0.9rem; margin: 0; }
-        .exp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+        .exp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
         .exp-stat { background: #fff; border-radius: 12px; padding: 0.85rem 1.1rem; border: 1px solid #e5e0d4; }
         .exp-stat-label { font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
         .exp-stat-val { font-size: 1.5rem; font-weight: 700; color: #0f172a; }
