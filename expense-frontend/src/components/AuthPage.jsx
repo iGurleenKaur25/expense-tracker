@@ -17,7 +17,7 @@ const AuthPage = () => {
 
   // animated ledger balance on mount — signature element
   useEffect(() => {
-    let start = 0;
+    // let start = 0;
     const duration = 1400;
     const startTime = performance.now();
     const step = (now) => {

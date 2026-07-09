@@ -98,7 +98,7 @@ export default function Dashboard() {
   const totalLoanAmt   = loans.reduce((s, l) => s + (l.loanAmount || 0), 0);
   const totalRemaining = loans.reduce((s, l) => s + (l.remainingAmount || 0), 0);
   const totalPaid      = totalLoanAmt - totalRemaining;
-  const paidPct        = totalLoanAmt > 0 ? Math.round((totalPaid / totalLoanAmt) * 100) : 0;
+  // const paidPct        = totalLoanAmt > 0 ? Math.round((totalPaid / totalLoanAmt) * 100) : 0;
   const activeLoans    = loans.filter((l) => l.status === "ACTIVE").length;
 
   // EMI total for the filtered period (shown as a sub-stat)

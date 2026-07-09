@@ -1,11 +1,10 @@
 
-
 import { useEffect, useState } from "react";
 import API from "../api/axiosInstance";
 
 import LoanSimulationForm from "../components/loans/LoanSimulationForm";
 import LoanList from "../components/loans/LoanList";
-import LoanItem from "../components/loans/LoanItem";
+// import LoanItem from "../components/loans/LoanItem";
 
 const Loans = () => {
   const [loans, setLoans] = useState([]);
