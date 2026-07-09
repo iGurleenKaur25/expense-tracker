@@ -72,7 +72,7 @@ const NotificationBell = () => {
       <style>{`
         .notif-wrap { position: relative; }
         .notif-btn { background: none; border: none; cursor: pointer; position: relative; padding: 0.4rem; display: flex; align-items: center; color: #fff; }
-        .notif-dot { position: absolute; top: 2px; right: 2px; background: #dc2626; color: #fff; font-size: 0.6rem; font-weight: 700; border-radius: 10px; min-width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; padding: 0 3px; }
+        .notif-dot { position: absolute; top: 2px; right: 2px; background: #dc2626; color: #fff; font-size: 0.8rem; font-weight: 700; border-radius: 10px; min-width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; padding: 0 3px; }
         .notif-dropdown { position: absolute; top: calc(100% + 8px); right: 0; width: 340px; max-height: 420px; overflow-y: auto; background: #fff; border-radius: 12px; box-shadow: 0 10px 35px rgba(0,0,0,0.15); border: 1px solid #e5e7eb; z-index: 200; }
         .notif-header { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem; border-bottom: 1px solid #f3f4f6; }
         .notif-header h4 { font-size: 0.85rem; font-weight: 600; color: #111; margin: 0; }
