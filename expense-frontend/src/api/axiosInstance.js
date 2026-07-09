@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://expense-tracker-nbex.onrender.com",
+  baseURL: "https://expense-tracker-nbex.onrender.com/api",
 });
 
 API.interceptors.request.use(
