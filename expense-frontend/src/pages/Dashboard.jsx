@@ -95,7 +95,7 @@ export default function Dashboard() {
   const moneyLeft   = totalIncome - totalExp;
   const savingsPct  = totalIncome > 0 ? Math.round((moneyLeft / totalIncome) * 100) : 0;
 
-  const totalLoanAmt   = loans.reduce((s, l) => s + (l.loanAmount || 0), 0);
+  // const totalLoanAmt   = loans.reduce((s, l) => s + (l.loanAmount || 0), 0);
   const totalRemaining = loans.reduce((s, l) => s + (l.remainingAmount || 0), 0);
   // const totalPaid      = totalLoanAmt - totalRemaining;
   // const paidPct        = totalLoanAmt > 0 ? Math.round((totalPaid / totalLoanAmt) * 100) : 0;
