@@ -22,7 +22,11 @@
 .nav-links a:hover {
   color: #38bdf8;
 }
-
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 .nav-auth button {
   padding: 8px 15px;
   border: none;

@@ -1,3 +1,5 @@
+
+
 import axios from "axios";
 
 const API = axios.create({
@@ -6,17 +8,9 @@ const API = axios.create({
 
 API.interceptors.request.use(
   (req) => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        const user = JSON.parse(storedUser);
-
-        if (user?.token) {
-          req.headers.Authorization = `Bearer ${user.token}`;
-        }
-      } catch (e) {
-        console.error("Invalid user in localStorage");
-      }
+    const token = localStorage.getItem("token");
+    if (token && token !== "undefined") {
+      req.headers.Authorization = `Bearer ${token}`;
     }
     return req;
   },

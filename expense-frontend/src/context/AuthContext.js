@@ -1,22 +1,36 @@
+
+
 import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
+const getStoredUser = () => {
+  try {
     const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
+    if (!storedUser || storedUser === "undefined") return null;
+    return JSON.parse(storedUser);
+  } catch (err) {
+    console.error("Failed to parse stored user, clearing it:", err);
+    localStorage.removeItem("user");
+    return null;
+  }
+};
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(getStoredUser);
 
   const login = (userData) => {
-    // userData must be an OBJECT { token, ... }
+    if (!userData) {
+      console.error("login() called with no user data — not storing.");
+      return;
+    }
     localStorage.setItem("user", JSON.stringify(userData));
-    console.log("LOGIN DATA:", userData);
     setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
     setUser(null);
   };
 
@@ -26,5 +40,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-

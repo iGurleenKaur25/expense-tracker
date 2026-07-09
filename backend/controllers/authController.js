@@ -1,3 +1,5 @@
+
+
 const User = require('../models/Users');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
@@ -14,7 +16,7 @@ const generateToken = (id) => {
 
 exports.registerUser = async (req,res,next) => {
   console.log(req.body);
-    const{name,email,password} = req.body;
+    const{name,email,password,userType} = req.body;
         if (!name|| !email || !password) {
       return res.status(400).json({
         message: "All fields are required"
@@ -27,23 +29,25 @@ exports.registerUser = async (req,res,next) => {
         if (userExists) {
             return res.status(400).json({ message: 'User already exists' });
         }
-            
+
 const hashedPassword = await bcrypt.hash(password, 10);
 console.log("REGISTER HASH:", hashedPassword);
 
          const user = await User.create({
          name,
          email,
-         password: hashedPassword
+         password: hashedPassword,
+         userType: userType === 'student' ? 'student' : 'general'
          });
 
-    // 3. Send response with token
     res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      // password:hashedPassword,
-      token: generateToken(user._id)
+      token: generateToken(user._id),
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        userType: user.userType
+      }
     });
     }
     catch (error) {
@@ -80,18 +84,14 @@ exports.loginUser = async (req,res,next) => {
               message: "Invalid credentials"
             });
     }
-          const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+
         res.status(200).json({
-      // token,
+      token: generateToken(user._id),
       user: {
-        id: user._id,
+        _id: user._id,
         name: user.name,
         email: user.email,
-        token: generateToken(user._id)
+        userType: user.userType
       }
     });
 
@@ -103,4 +103,3 @@ exports.loginUser = async (req,res,next) => {
       });
     }
 }
-

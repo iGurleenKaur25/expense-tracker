@@ -14,17 +14,16 @@ const userSchema = new mongoose.Schema(
         password : {
             type:String, 
             required : true
+        },
+        userType: {
+            type: String,
+            enum: ['student', 'general'],
+            default: 'general'
         }
     }
 );
 
-// userSchema.pre('save', async function(){
-//     if(!this.isModified('password')) return ;
-//     const salt = await bcrypt.genSalt(10);
-//     this.password = await bcrypt.hash(this.password, salt);
-//     // next();
 
-// });
 
 
 userSchema.methods.matchPassword = async function(enteredPassword){
@@ -32,5 +31,3 @@ userSchema.methods.matchPassword = async function(enteredPassword){
 }
 
 module.exports = mongoose.model('User', userSchema);
-
-

@@ -1,53 +1,19 @@
-// import { Link, useNavigate } from "react-router-dom";
-// import "./navbar.css";
-
-// const Navbar = () => {
-//   const navigate = useNavigate();
-//   const token = localStorage.getItem("token");
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     navigate("/login");
-//   };
-
-//   return (
-//     <nav className="navbar">
-//       <h2 className="logo">FinanceTracker</h2>
-
-//       <div className="nav-links">
-//         {token && (
-//           <>
-//             <Link to="/dashboard">Dashboard</Link>
-//             <Link to="/expenses">Expenses</Link>
-//             <Link to="/loans">Loans</Link>
-//             <Link to="/payments">Payments</Link>
-//           </>
-//         )}
-//       </div>
-
-//       <div className="nav-auth">
-//         {token ? (
-//           <button onClick={handleLogout}>Logout</button>
-//         ) : (
-//           <button onClick={() => navigate("/login")}>Login</button>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import NotificationBell from "./notifications/NotificationBell";
 import "./navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, logout } = useContext(AuthContext);
 
+  const hideOnRoutes = ["/", "/login", "/register"];
+  if (hideOnRoutes.includes(location.pathname)) return null;
+
   const handleLogout = () => {
-    logout(); // ✅ clears localStorage + state
+    logout();
     navigate("/login");
   };
 
@@ -62,16 +28,14 @@ const Navbar = () => {
             <Link to="/expenses">Expenses</Link>
             <Link to="/loans">Loans</Link>
             <Link to="/payments">Payments</Link>
+            <Link to="/income">Income</Link>
           </>
         )}
       </div>
 
       <div className="nav-auth">
-        {user ? (
-          <button onClick={handleLogout}>Logout</button>
-        ) : (
-          <button onClick={() => navigate("/login")}>Login</button>
-        )}
+        {user && <NotificationBell />}
+        {user && <button onClick={handleLogout}>Logout</button>}
       </div>
     </nav>
   );

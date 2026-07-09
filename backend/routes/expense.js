@@ -10,9 +10,7 @@ const {
 } = require("../controllers/expenseController");
 const protect = require("../middleware/authMiddleware"); 
 
-// router.post("/", authMiddleware, addExpense);
-// router.get("/", authMiddleware, getExpenses);
-// router.delete("/:id", authMiddleware, deleteExpense);
+
 
 router.route("/")
   .post(protect, addExpense)
