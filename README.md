@@ -1,19 +1,26 @@
 # Expense Tracker
 Deployed Link - https://expense-tracker-silk-ten-70.vercel.app/
+A full-stack **MERN Expense Tracker** designed to help users efficiently manage their personal finances. The application allows users to track income, expenses, loans, repayments, and student-related payments through a secure and intuitive interface.
 
-A full-stack **Expense Tracker** built using the **MERN Stack** that helps users manage their personal finances by tracking income, expenses, loans, and repayments through an intuitive dashboard.
+## ✨ Features
 
-## Features
+* 🔐 Secure JWT-based authentication
+* 💰 Add, edit, and delete income and expense records
+* ✨Email notifications
+* 🏦 Loan management with repayment tracking
+* 🎓 Manage student-related payments such as:
 
-* 🔐 Secure JWT Authentication
-* 💰 Add, edit, and delete income
-*  Export reports (PDF/Excel)
-* 💸 Add, edit, and delete expenses
-* 🏦 Loan management and repayment tracking
-* 📊 Dashboard with financial statistics and charts
-* 📱 Responsive user interface
+  * Hostel Fees
+  * Mess Fees
+  * Tuition Fees
+  * Other academic expenses
+* 💳 Record and track different payment types
+* 📊 Dashboard with financial summaries and charts
+* 📄 Export expenses and payment history as **PDF** and **CSV**
+* 🔔 Notifications and payment reminders
+* 📱 Responsive and user-friendly interface
 
-## Tech Stack
+## 🛠 Tech Stack
 
 **Frontend**
 
@@ -28,10 +35,10 @@ A full-stack **Expense Tracker** built using the **MERN Stack** that helps users
 * Express.js
 * MongoDB
 * Mongoose
-* JWT
+* JWT Authentication
 * bcrypt
 
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/iGurleenKaur25/expense-tracker.git
@@ -48,6 +55,6 @@ npm run dev
 ```
 
 
-## Author
+## 👩‍💻 Author
 
 **Gurleen Kaur**
