@@ -51,6 +51,7 @@ const loanRoutes = require('./routes/loan');
 const paymentRoutes = require('./routes/payment');
 const incomeRoutes = require('./routes/incomeRoutes');           // NEW
 const notificationRoutes = require('./routes/notificationRoutes'); // NEW
+const ai = require('./routes/ai');
 // const advisorRoutes = require('./routes/advisor');          // NEW
 
 app.use('/api/auth', authRoutes);
@@ -59,6 +60,7 @@ app.use('/api/loans', loanRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/income', incomeRoutes);                       // NEW
 app.use('/api/notifications', notificationRoutes);          // NEW
+app.use('/api/ai', ai);
 // app.use('/api/advisor', advisorRoutes);                     // NEW
 
 mongoose.connect(process.env.MONGO_URI, {
