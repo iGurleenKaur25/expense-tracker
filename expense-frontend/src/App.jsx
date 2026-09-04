@@ -9,6 +9,7 @@ import Loans from "./pages/Loans";
 import Navbar from "./components/Navbar";
 import Payments from "./pages/Payments";
 import Income from "./pages/Income"; // NEW
+import AIAssistant from "./pages/AIAssistant";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Route path="/expenses" element={<Expenses />} />
         <Route path="/loans" element={<Loans />} />
         <Route path="/payments" element={<Payments />} />
-        <Route path="/income" element={<Income />} /> {/* NEW */}
+        <Route path="/income" element={<Income />} /> 
+        <Route path="/ai-assistant" element={<AIAssistant />} />
       </Routes>
     </BrowserRouter>
   );

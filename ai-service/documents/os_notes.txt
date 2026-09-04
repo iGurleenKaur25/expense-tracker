@@ -1,0 +1,12 @@
+Deadlock is a situation where a group of processes are waiting
+for resources held by each other.
+
+The four necessary conditions for deadlock are mutual exclusion,
+hold and wait, no preemption, and circular wait.
+
+Deadlock prevention works by ensuring that at least one of
+the four necessary conditions cannot occur.
+
+Deadlock avoidance is different from prevention. Avoidance
+requires the system to examine resource allocation and ensure
+that it remains in a safe state.
