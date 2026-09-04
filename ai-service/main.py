@@ -6,30 +6,23 @@ from dotenv import load_dotenv
 from google import genai
 
 from rag import load_chunks, retrieve, build_prompt
-
-
 load_dotenv()
 
 app = FastAPI()
-
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
 chunks = load_chunks()
 
-
 class Question(BaseModel):
     question: str
-
 
 @app.get("/")
 def home():
     return {
         "message": "AI service is running"
     }
-
-
 @app.post("/ask")
 def ask(data: Question):
 
@@ -39,7 +32,6 @@ def ask(data: Question):
         chunks,
         top_k=2
     )
-
     # 2. Create prompt using question + retrieved chunks
     prompt = build_prompt(
         data.question,
