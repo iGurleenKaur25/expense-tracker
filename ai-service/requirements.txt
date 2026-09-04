@@ -2,5 +2,5 @@ fastapi
 uvicorn
 google-genai
 python-dotenv
-sentence-transformers
+
 scikit-learn

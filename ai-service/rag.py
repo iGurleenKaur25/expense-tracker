@@ -1,10 +1,9 @@
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def load_chunks():
+
     with open("documents/os_notes.txt", "r", encoding="utf-8") as file:
         text = file.read()
 
@@ -15,12 +14,15 @@ def load_chunks():
 
 def retrieve(question, chunks, top_k=2):
 
-    chunk_embeddings = model.encode(chunks)
-    question_embedding = model.encode([question])
+    vectorizer = TfidfVectorizer()
+
+    chunk_vectors = vectorizer.fit_transform(chunks)
+
+    question_vector = vectorizer.transform([question])
 
     similarities = cosine_similarity(
-        question_embedding,
-        chunk_embeddings
+        question_vector,
+        chunk_vectors
     )[0]
 
     top_indices = similarities.argsort()[-top_k:][::-1]
