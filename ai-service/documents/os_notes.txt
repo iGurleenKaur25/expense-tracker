@@ -1,12 +1,18 @@
-Deadlock is a situation where a group of processes are waiting
-for resources held by each other.
+A good budgeting guideline is to track spending by category such as food,
+travel, shopping, bills, health, and entertainment.
 
-The four necessary conditions for deadlock are mutual exclusion,
-hold and wait, no preemption, and circular wait.
+A person can identify overspending by comparing the amount spent across
+different categories and time periods.
 
-Deadlock prevention works by ensuring that at least one of
-the four necessary conditions cannot occur.
+Essential expenses generally include rent, bills, healthcare, groceries,
+and necessary transportation.
 
-Deadlock avoidance is different from prevention. Avoidance
-requires the system to examine resource allocation and ensure
-that it remains in a safe state.
+Non-essential expenses can include shopping, entertainment, dining out,
+and other discretionary purchases.
+
+A useful budgeting practice is to review expenses regularly and set
+reasonable spending limits for discretionary categories.
+
+When analyzing personal expenses, consider both total spending and
+individual transactions.
+
