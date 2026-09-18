@@ -153,8 +153,15 @@ const askAI = async (req, res) => {
         const data = await response.json();
 
         if (!response.ok) {
-            return res.status(response.status).json(data);
-        }
+    console.log("AI service unavailable:", data);
+
+    return res.status(200).json({
+        question: question,
+        answer: "AI service is temporarily unavailable because the Gemini request limit has been reached. Your financial calculations are still available.",
+        financialStats: financialStats,
+        aiAvailable: false
+    });
+}
 
         res.json(data);
 
