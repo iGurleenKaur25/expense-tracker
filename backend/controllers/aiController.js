@@ -162,7 +162,7 @@ const askAI = async (req, res) => {
         console.error("AI ERROR:", error);
 
         res.status(500).json({
-            message: "Could not process AI request",
+            message: "AI service is temporarily unavailable because the Gemini request limit has been reached. Your financial calculations are still available.",
              error: error.message
         });
     }

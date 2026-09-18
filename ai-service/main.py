@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
+from google.genai.errors import RateLimitError
 
 from rag import load_chunks, retrieve
 
@@ -96,17 +97,25 @@ Knowledge Context:
 User's Question:
 {data.question}
 """
-
-    response = client.interactions.create(
+    try:
+        response = client.interactions.create(
         model="gemini-3.7-flash",
         input=prompt
     )
-
-    return {
+    except RateLimitError:
+        return {
         "question": data.question,
-        "answer": response.output_text,
-        "sources": results
+        "answer": "the ai services is temporarily unavailable",
+        "sources": results,
+        "error" : "GEMINI_RATE_LIMIT"
     }
+
+        return {
+            "question": data.question,
+            "answer": response.output_text,
+            "sources": results,
+           
+        }
 
 
 # import os

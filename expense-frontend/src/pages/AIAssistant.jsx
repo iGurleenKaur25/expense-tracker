@@ -27,6 +27,7 @@ function AIAssistant() {
 
     setAnswer(
         error.response?.data?.message ||
+        error.response?.data?.answer ||
         error.response?.data?.error ||
         "Something went wrong while contacting the AI."
     );
